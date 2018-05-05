@@ -3,21 +3,22 @@ import styled from 'styled-components';
 import { Route } from 'react-router-dom';
 
 import Header from './Header';
+import CustomerList from './CustomerList';
+import CustomerInvite from './CustomerInvite';
+
+const Container = styled.div`
+    max-width: 1024px;
+    width: 100%;
+`;
 
 export default class LoggedinPages extends Component {
     render() {
         return (
-            <div>
+            <Container>
                 <Header />
-                <FullHeightWrapper>
-                    <Container>
-                        <div>
-                            <Route path="/customer/invite" component={} />
-                            {/* <Route path="/customer/list" component={} /> */}
-                        </div>
-                    </Container>
-                </FullHeightWrapper>
-            </div>
+                <Route path="/customer/list" component={CustomerList} />
+                <Route path="/customer/invite" component={CustomerInvite} />
+            </Container>
         );
     }
 }
