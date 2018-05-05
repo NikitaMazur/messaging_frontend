@@ -19,6 +19,7 @@ const InnerForm = ({
                 usage
                 type="email"
                 name="email"
+                placeholder="Email"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
@@ -30,6 +31,7 @@ const InnerForm = ({
                 usage
                 type="password"
                 name="password"
+                placeholder="Password"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
