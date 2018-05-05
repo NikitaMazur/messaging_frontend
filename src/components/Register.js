@@ -65,7 +65,7 @@ const InnerForm = ({
   );
 
   const LoginForm = withFormik({
-    mapPropsToValues: props => ({ email: '', password: '' }),
+    mapPropsToValues: props => ({ firstName: '', lastName: '', email: '', password: '' }),
     validate: (values, props) => {
       const errors = {};
       if (!values.email) {
@@ -74,6 +74,20 @@ const InnerForm = ({
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
       ) {
         errors.email = 'Invalid email address';
+      }
+      if (!values.firstName) {
+        errors.firstName = 'Required';
+      } else if (
+        /\d/.test(values.firstName)
+      ) {
+        errors.firstName = 'The firstname can not contain digits';
+      }
+      if (!values.lastName) {
+        errors.lastName = 'Required';
+      } else if (
+        /\d/.test(values.lastName)
+      ) {
+        errors.lastName = 'The lastname can not contain digits';
       }
       return errors;
     },
